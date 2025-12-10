@@ -1,5 +1,7 @@
+const apiUrl = `http://${window.location.hostname}:8000`;  // Dynamically use the host's IP
+
 function updateStatus() {
-    fetch("http://localhost:8000/status")
+    fetch(`${apiUrl}/status`)
         .then(res => res.json())
         .then(data => {
             updateBox("db", data.db);
@@ -23,19 +25,19 @@ function updateBox(id, isOnline) {
 }
 
 function stopService(name) {
-    fetch(`http://localhost:8000/stop/${name}`, { method: "POST" })
+    fetch(`${apiUrl}/stop/${name}`, { method: "POST" })
         .then(res => res.json())
         .then(() => setTimeout(updateStatus, 1500));
 }
 
 function startService(name) {
-    fetch(`http://localhost:8000/start/${name}`, { method: "POST" })
+    fetch(`${apiUrl}/start/${name}`, { method: "POST" })
         .then(res => res.json())
         .then(() => setTimeout(updateStatus, 2000));
 }
 
 function pingService(name) {
-    fetch(`http://localhost:8000/ping/${name}`, { method: "POST" })
+    fetch(`${apiUrl}/ping/${name}`, { method: "POST" })
         .then(res => res.json())
         .then(data => addEvent(name, data.message));
 }
@@ -52,7 +54,7 @@ function addEvent(serviceId, message) {
 // Load logs from Postgres on page load
 function loadLogsFromDB() {
     ["db", "redis", "rabbit"].forEach(serviceId => {
-        fetch(`http://localhost:8000/logs/${serviceId}`)
+        fetch(`${apiUrl}/logs/${serviceId}`)
             .then(res => res.json())
             .then(data => {
                 const box = document.getElementById(serviceId);
