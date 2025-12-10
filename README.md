@@ -4,7 +4,7 @@ A real-time monitoring and control dashboard for DevOps services using Docker, P
 
 This application allows users to monitor, start, stop, and ping essential services in real-time, with persistent logs stored in PostgreSQL. It is designed to showcase live infrastructure status and functionality, ideal for demonstrations, DevOps learning, or internal monitoring.
 
-Table of Contents
+## Table of Contents
 
 1. Features
 
@@ -21,7 +21,7 @@ Table of Contents
 7. Technologies Used
 
 
-Features
+## Features
 
 * Real-time status monitoring of PostgreSQL, Redis, and RabbitMQ.
 
