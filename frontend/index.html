@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DevOps Live Services Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>DevOps Live Services Dashboard</h1>
+
+    <div class="service" id="db">
+        <h2>Database (PostgreSQL)</h2>
+        <p class="status">Loading...</p>
+        <button onclick="stopService('db')">Stop DB</button>
+        <button onclick="startService('db')">Start DB</button>
+        <button onclick="pingService('db')">Ping DB</button>
+        <div class="events"></div>
+    </div>
+
+    <div class="service" id="redis">
+        <h2>Redis Cache</h2>
+        <p class="status">Loading...</p>
+        <button onclick="stopService('redis')">Stop Redis</button>
+        <button onclick="startService('redis')">Start Redis</button>
+        <button onclick="pingService('redis')">Ping Redis</button>
+        <div class="events"></div>
+    </div>
+
+    <div class="service" id="rabbit">
+        <h2>RabbitMQ Queue</h2>
+        <p class="status">Loading...</p>
+        <button onclick="stopService('rabbit')">Stop RabbitMQ</button>
+        <button onclick="startService('rabbit')">Start RabbitMQ</button>
+        <button onclick="pingService('rabbit')">Ping RabbitMQ</button>
+        <div class="events"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
